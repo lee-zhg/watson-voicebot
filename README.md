@@ -278,7 +278,7 @@ To connect your `Voice Agent with Watson` to your Watson Services,
     !["watson-voicebot-architecture"](docs/images/watson-voice-agent06.png)
 
 
-### Test
+### Step 6 - Dial and Make Order
 
 Now, you completed the configuration of your voicebot, or cognitive agent.
 
@@ -302,7 +302,7 @@ For example, you can make the following oders.
 
 1. The voicebot picks up the call and greets you with welcome greeting.
 
-1. You talk to voicebot `one big mac to go`.
+1. You make the order by talking to voicebot `one big mac to go`.
 
 1. Because all required information to order a burger has been provided, the voicebot grabs information and completes the order with response messages.
 
@@ -312,7 +312,7 @@ For example, you can make the following oders.
 
 1. The voicebot picks up the call and greets you with welcome greeting.
 
-1. You talk to voicebot `one big mac please`.
+1. You make 2nd order by talking to voicebot `one big mac please`.
 
 1. Because dining location information to order a burger was not provided, the voicebot prompts you for the iinformation.
 
@@ -324,7 +324,7 @@ For example, you can make the following oders.
 
 1. The voicebot picks up the call and greets you with welcome greeting.
 
-1. You talk to voicebot `I like to order a small McFlurry with cooky`.
+1. You make the 3rd order by talking to voicebot `I like to order a small McFlurry with cooky`.
 
 1. Because all required information to order a McFlurry has been provided, the voicebot grabs information and completes the order with response messages.
 
