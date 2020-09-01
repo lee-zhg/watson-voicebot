@@ -4,6 +4,12 @@ IBM Voice Agent with Watso enables direct, automated voice interactions over the
 
 IBM Voice Agent with Watsons helps you integrate a set of orchestrated Watson services with the telephone network by using the Session Initiation Protocol (SIP). 
 
+This repo is part of Watson chatbot serial. The entire serial includes
+* [Simple ChatBot](https://github.com/lee-zhg/watson-chatbot-simple.git)
+* [Dressed-up ChatBot](https://github.com/lee-zhg/watson-chatbot-advanced.git)
+* [Voice-Enabled ChatBot](https://github.com/lee-zhg/watson-voice-enabled-chatbot.git)
+* [VoiceBot – Call and speak to ChatBot](https://github.com/lee-zhg/watson-voicebot.git) 
+
 
 ## Architecture and Components
 
