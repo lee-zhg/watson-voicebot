@@ -335,3 +335,15 @@ For example, you can make the following oders.
 1. Because all required information to order a McFlurry has been provided, the voicebot grabs information and completes the order with response messages.
 
 
+## Links
+
+* [Getting started with Voice Agent with Watson](https://cloud.ibm.com/docs/voice-agent?topic=voice-agent-getting-started)
+* [Voice Agent with Watson Docs](https://cloud.ibm.com/docs/voice-agent?topic=voice-agent-about)
+* [Demo](https://www.youtube.com/watch?v=ztOme26gVuA)
+
+## Learn more
+
+* **Artificial Intelligence Code Patterns**: Enjoyed this Code Pattern? Check out our other [AI Code Patterns](https://developer.ibm.com/technologies/artificial-intelligence/).
+* **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
+* **With Watson**: Want to take your Watson app to the next level? Looking to utilize Watson Brand assets? [Join the With Watson program](https://www.ibm.com/watson/with-watson/) to leverage exclusive brand, marketing, and tech resources to amplify and accelerate your Watson embedded commercial solution.
+* **Kubernetes on IBM Cloud**: Deliver your apps with the combined the power of [Kubernetes and Docker on IBM Cloud](https://www.ibm.com/cloud/container-service)
