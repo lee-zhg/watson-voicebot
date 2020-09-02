@@ -59,19 +59,70 @@ In addition to SIP trunk, you may choose different architecture when implementin
 
 Complete sections below to configure Watson Voice Agent to integrate a set of orchestrated Watson services with the telephone network by using the Session Initiation Protocol (SIP). 
 
+### Step 1 - Clone the Repo
 
-### Step 1 - Create and Configure Watson Assistant Service
+In a terminal, run:
+
+```
+$ git clone https://github.com/lee-zhg/watson-voicebot.git
+
+$ cd watson-voicebot
+```
+
+We’ll be using the file [`data/skill-watson-burger-voice.json`](../../data/skill-watson-burger-voice.json) to upload the Assistant Intents, Entities, and Dialog Nodes.
+
+
+### Step 2 - Create Watson Assistant Service
 
 `Watson Assistant` is the core component of the `Watson Voicebot`. Its intents, entities and dialog flows' configurations determine the covered subjects and conversation flows that the end users will experience when they call helpdesk.
 
-If you have not completed the exercise of [Basic Burger Ordering Chatbot with Watson Assistant Service](https://github.com/lee-zhg/watson-chatbot-simple.git), go ahead and complete it. At minimal, you need to complete steps in [Run locally](https://github.com/lee-zhg/watson-chatbot-simple/blob/master/doc/source/local.md). The exercise guides you to create an instance of `Watson Assistant` and creates a skill `watson-burger-simple`.
+If you have an existing `Watson Text to Speech` service, you may skip the rest of the section.
+
+To create an instance of `Watson Assistant` service,
+
+1. Login to [IBM Cloud](https://cloud.ibm.com).
+
+1. Navigate to `Watson Assistant` catalog page (https://cloud.ibm.com/catalog/services/conversation).
+
+1. Select `Lite`, `Plus Trial` or `Plus` plan.
+
+1. Give a unique name.
+
+1. Click `Create` button on the right.
+
+1. Go to the `Manage` tab.
+
+1. Record the service `API key` and `URL`.
+
+    !["watson-voicebot-architecture"](docs/images/watson-assistant01.png)
+
+
+### Step 3 - Configure Watson Assistant
+
+You define `intents`, `entities` and `dialog flows` in your `Watson Assistant` instance. You may develop from scratch or import file [`data/skill-watson-burger-voice.json`](../../data/skill-watson-burger-voice.json) as a starting point.
+
+1. Go to the `Manage` tab of your `Watson Assistant` instance and then click on `Launch Watson Assistant`.
+
+1. Select the `Skills` tab in the left navigation tab.
+
+1. Click `Create skill`
+
+1. Select the `Dialog skill` option and then click `Next`.
+
+1. Go to the `Import skill` tab.
+
+1. Click the link `Drag and drop file here or click to select a file`.
+
+1. Go to your cloned repo dir, and `Open` file [`data/skill-watson-burger-voice.json`](../../data/skill-watson-burger-voice.json).
+
+1. Click `Import`.
 
 Before you continue the rest of the exercise, you must have
 * an instance of `Watson Assistant` service
-* a skill `watson-burger-simple` defined in the above service
+* a skill `watson-burger-voice` defined in the above service
 
 
-### Step 2 - Create Watson Speech to Text Service
+### Step 4 - Create Watson Speech to Text Service
 
 `Watson Speech to Text` service takes the voice stream of the end users' input and transcribes to text which is subsequently passed to `Watson Assistant` service as a question or request to be fulfilled.
 
@@ -96,7 +147,7 @@ To create an instance of `Watson Speech to Text` service,
     !["watson-voicebot-architecture"](docs/images/watson-speech2text01.png)
 
 
-### Step 3 - Create Watson Text to Speech Service
+### Step 5 - Create Watson Text to Speech Service
 
 `Watson Text to Speech` service converts text messages from `Watson Assistant` service to audio, and then send back to the end user who initiated the call. 
 
@@ -121,7 +172,7 @@ To create an instance of `Watson Text to Speech` service,
     !["watson-voicebot-architecture"](docs/images/watson-text2speech01.png)
 
 
-### Step 4 - Create Voice Agent with Watson Service
+### Step 6 - Create Voice Agent with Watson Service
 
 `Voice Agent with Watson` service is the another core component of the `Watson Voicebot`. This component integrates all Watson services and your telephony system and makes the voicebot as a single working unit.
 
@@ -146,12 +197,12 @@ To create an instance of `Voice Agent with Watson` service,
 1. In the left pane, the steps and instructions to configure the `voice agent` present.
 
 
-### Step 5 -  Comnfigure Cognitive Agent
+### Step 7 -  Comnfigure Cognitive Agent
 
 The rest of the repo illustrates how to create a cognitive agent, built on top of Watson services, that integrates with the Twilio telephone network using the Session Initiation Protocol (SIP).
 
 
-#### 5.1 - Setup a SIP Trunk for Voice Capabilities with Twilio
+#### 7.1 - Setup a SIP Trunk for Voice Capabilities with Twilio
 
 When you connect to a voice agent through a SIP trunk, you must configure your SIP trunk to forward INVITE requests to the agent based on its IP address. For `Voice Agent with Watson`, the `Primary Endpoint` on the Getting started page is the SIP URI endpoint that you would need when configuring Twilio account. You should have recorded the `Primary Endpoint` at the previous step.
 
@@ -194,7 +245,7 @@ When you connect to a voice agent through a SIP trunk, you must configure your S
     !["watson-voicebot-architecture"](docs/images/twilio08.png)
 
 
-#### 5.2 - Cofigure Twilio Phone Number
+#### 7.2 - Cofigure Twilio Phone Number
 
 When you created a Twilio trail account, a phone number is assigned to the account. After you configure the phone# with SIP trunk, the call to the phone# is forwarded to the `Voice Agent with Watson`. Then, the request will be handled by the chatbot based on `Watson Assistant`.
 
@@ -221,7 +272,7 @@ When you created a Twilio trail account, a phone number is assigned to the accou
 1. Click `Save`.
 
 
-#### Step 5.3 - Connect your Voice Agent with Watson to your Watson Services
+#### Step 7.3 - Connect your Voice Agent with Watson to your Watson Services
 
 To connect your `Voice Agent with Watson` to your Watson Services,
 
@@ -251,9 +302,9 @@ To connect your `Voice Agent with Watson` to your Watson Services,
 
 1. Select your `Watson Assistant` instance in the `Service instance` field.
 
-1. Select `watson-burger-simple/......` as the `Skill name`.
+1. Select `watson-burger-voice/......` as the `Skill name`.
 
-    > **Note**: you must select `watson-burger-simple/......`. Skill `wstson-burger-advanced` does not work as its dialog flow contains HTTP tags that `Watson Speech to Text` service can't process.
+    > **Note**: you must select `watson-burger-voice/......`. Skill `wstson-burger-advanced` does not work as its dialog flow contains HTTP tags that `Watson Speech to Text` service can't process.
 
     !["watson-voicebot-architecture"](docs/images/watson-voice-agent04.png)
 
@@ -284,7 +335,7 @@ To connect your `Voice Agent with Watson` to your Watson Services,
     !["watson-voicebot-architecture"](docs/images/watson-voice-agent06.png)
 
 
-### Step 6 - Dial and Make Order
+### Step 8 - Dial and Make Order
 
 Now, you completed the configuration of your voicebot, or cognitive agent.
 
