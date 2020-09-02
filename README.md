@@ -76,7 +76,7 @@ We’ll be using the file [`data/skill-watson-burger-voice.json`](../../data/ski
 
 `Watson Assistant` is the core component of the `Watson Voicebot`. Its intents, entities and dialog flows' configurations determine the covered subjects and conversation flows that the end users will experience when they call helpdesk.
 
-If you have an existing `Watson Text to Speech` service, you may skip the rest of the section.
+If you have an existing `Watson Assistant` service, you may skip the rest of the section.
 
 To create an instance of `Watson Assistant` service,
 
