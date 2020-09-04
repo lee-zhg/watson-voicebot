@@ -324,6 +324,10 @@ To connect your `Voice Agent with Watson` to your Watson Services,
 
     !["watson-voicebot-architecture"](docs/images/watson-voice-agent05.png)
 
+    >**Note**: Please refer to [Creating Custom Model of Watson Speech to Text](https://github.com/lee-zhg/watson-speech2text-custom-model.git) if you need to build a `custom lnaguage model` for `Watsonm Speech to text` service.
+
+    >**Note**: If you participated a hackathon and need `custom lnaguage model` for `Watsonm Speech to text` service, talk to any IBM mentor to check if an existing `custom lnaguage model` is available.
+
 1. Scroll down to the `Text to Speech` section.
 
 1. Make sure that the `My Text to Speech service instance` is selected as `Service type`.
