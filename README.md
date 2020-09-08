@@ -197,7 +197,7 @@ To create an instance of `Voice Agent with Watson` service,
 1. In the left pane, the steps and instructions to configure the `voice agent` present.
 
 
-### Step 7 -  Comnfigure Cognitive Agent
+### Step 7 -  Configure Cognitive Agent
 
 The rest of the repo illustrates how to create a cognitive agent, built on top of Watson services, that integrates with the Twilio telephone network using the Session Initiation Protocol (SIP).
 
@@ -338,6 +338,8 @@ To connect your `Voice Agent with Watson` to your Watson Services,
 
     !["watson-voicebot-architecture"](docs/images/watson-voice-agent06.png)
 
+1. Click `Create an agent` button to save the configuration.
+
 
 ### Step 8 - Dial and Make Order
 
@@ -385,7 +387,7 @@ For example, you can make the following oders.
 
 1. The voicebot picks up the call and greets you with welcome greeting.
 
-1. You make the 3rd order by talking to voicebot `I like to order a small McFlurry with cooky`.
+1. You make the 3rd order by talking to voicebot `I like to order a small McFlurry with cookie`.
 
 1. Because all required information to order a McFlurry has been provided, the voicebot grabs information and completes the order with response messages.
 
