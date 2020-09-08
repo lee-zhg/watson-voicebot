@@ -377,7 +377,7 @@ For example, you can make the following oders.
 
 1. You make 2nd order by talking to voicebot `one big mac please`.
 
-1. Because dining location information to order a burger was not provided, the voicebot prompts you for the iinformation.
+1. Because dining location information to order a burger was not provided, the voicebot prompts you for the information.
 
 1. After receiving all required information, the voicebot completes the order with response messages.
 
