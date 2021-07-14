@@ -212,7 +212,7 @@ When you connect to a voice agent through a SIP trunk, you must configure your S
 
     !["watson-voicebot-architecture"](docs/images/twilio07.png)
 
-1. Copy and paste the `SIP trunking configuration` section of your `Watson Assistant Voice Integration` page(see the screen shot below). The subject will be covered in the coming section.
+1. `SIP URI` information can be located in the `SIP trunking configuration` section of your `Watson Assistant Voice Integration` page(see the screen shot below). The subject will be covered in the coming section.
 
     !["watson-voicebot-architecture"](docs/images/watson-assistant06.png)
 
