@@ -1,0 +1,451 @@
+{
+  "intents": [
+    {
+      "intent": "exit",
+      "examples": [
+        {
+          "text": "cancel"
+        },
+        {
+          "text": "exit"
+        },
+        {
+          "text": "get me out"
+        },
+        {
+          "text": "get me out of here"
+        },
+        {
+          "text": "I'm done"
+        },
+        {
+          "text": "no"
+        }
+      ]
+    },
+    {
+      "intent": "help",
+      "examples": [
+        {
+          "text": "help"
+        },
+        {
+          "text": "help please"
+        },
+        {
+          "text": "I don't understand"
+        },
+        {
+          "text": "What can I do"
+        }
+      ]
+    },
+    {
+      "intent": "order",
+      "examples": [
+        {
+          "text": "a big mac to go"
+        },
+        {
+          "text": "a burger please"
+        },
+        {
+          "text": "a burger to go"
+        },
+        {
+          "text": "a McFlurry please"
+        },
+        {
+          "text": "a McFlurry to go"
+        },
+        {
+          "text": "a small McFlurry for here"
+        },
+        {
+          "text": "a small McFlurry please"
+        },
+        {
+          "text": "a small McFlurry to go"
+        },
+        {
+          "text": "can I have a small McFlurry please"
+        },
+        {
+          "text": "Can I have Big Mac meal please"
+        },
+        {
+          "text": "I like to order a drink"
+        },
+        {
+          "text": "I want to order a hamburger"
+        },
+        {
+          "text": "May I have a big mac, please"
+        },
+        {
+          "text": "may I have a burger, please"
+        },
+        {
+          "text": "may I have a small McFlurry please"
+        },
+        {
+          "text": "order"
+        }
+      ]
+    },
+    {
+      "intent": "photoservice",
+      "examples": [
+        {
+          "text": "have photo service"
+        },
+        {
+          "text": "have pictures on my phone printed"
+        },
+        {
+          "text": "I want to print photos"
+        },
+        {
+          "text": "like to print photos"
+        },
+        {
+          "text": "print pictures"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "reset",
+      "examples": [
+        {
+          "text": "begin"
+        },
+        {
+          "text": "delete the inputs"
+        },
+        {
+          "text": "reset"
+        },
+        {
+          "text": "restart"
+        },
+        {
+          "text": "start again"
+        },
+        {
+          "text": "start over"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity": "extra_confirmed",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "no",
+          "synonyms": [
+            "n"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "yes",
+          "synonyms": []
+        }
+      ]
+    },
+    {
+      "entity": "photoservice",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "card",
+          "synonyms": [
+            "baby shower",
+            "birthday card",
+            "graduation card"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "passport photo",
+          "synonyms": [
+            "passport"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "print",
+          "synonyms": [
+            "enlarge",
+            "have pictures printed",
+            "photo",
+            "picture",
+            "print photos"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "photosize",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "4x6",
+          "synonyms": [
+            "4 and 6",
+            "4by6",
+            "4 inch wide and 6 inch long",
+            "6 and 4",
+            "6 inch wide and 4 inch long",
+            "6x4",
+            "four by six",
+            "six by four"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "5x7",
+          "synonyms": [
+            "5 and 7",
+            "5 by 7",
+            "5 inch wide and 7 inch long",
+            "7 by 5",
+            "7 inch wide and 5 inch long",
+            "five by seven",
+            "seven by five"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "8x10",
+          "synonyms": [
+            "10 by 8",
+            "10 inch wide and 8 inch long",
+            "8 and 10",
+            "8 by 10",
+            "8 inch wide and 10 inch long",
+            "eight by ten",
+            "ten by eight"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Fallback",
+      "output": {
+        "text": {
+          "values": [
+            "You can have photo services, for example printing photos, ordering cards and etc. Ask for Help if needed."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "digress_in": "not_available",
+      "dialog_node": "Fallback",
+      "digress_out": "allow_all",
+      "previous_sibling": "Reset"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1626198665816",
+      "context": {
+        "photosize": "@photosize"
+      },
+      "conditions": "@photosize",
+      "event_name": "input",
+      "dialog_node": "handler_10_1626198665816"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What photo size do you like?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_10_1626198665816",
+      "event_name": "focus",
+      "dialog_node": "handler_2_1626198665816",
+      "previous_sibling": "handler_10_1626198665816"
+    },
+    {
+      "type": "standard",
+      "title": "Passport",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank you for your interest in CVS passport photo service."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1626198133334",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Reset"
+      },
+      "conditions": "#photoservice && @photoservice:(passport photo)",
+      "dialog_node": "node_10_1626199074247",
+      "previous_sibling": "node_2_1626198943590"
+    },
+    {
+      "type": "frame",
+      "title": "Print Photos",
+      "parent": "node_5_1626198133334",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Reset"
+      },
+      "conditions": "#photoservice && @photoservice:print",
+      "dialog_node": "node_1_1626198346023"
+    },
+    {
+      "type": "standard",
+      "title": "Cards",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank you for your interest in CVS card service."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1626198133334",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Reset"
+      },
+      "conditions": "#photoservice && @photoservice:card",
+      "dialog_node": "node_2_1626198943590",
+      "previous_sibling": "node_1_1626198346023"
+    },
+    {
+      "type": "standard",
+      "title": "PhotoService",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": ""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#photoservice",
+      "dialog_node": "node_5_1626198133334",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Reset",
+      "output": {
+        "text": {
+          "values": [
+            "......"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "context": {
+        "photosize": null
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Welcome"
+      },
+      "conditions": "#reset",
+      "dialog_node": "Reset",
+      "previous_sibling": "node_5_1626198133334"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [
+            "Your $photosize photos will be ready in one hour. 5 cents per photo print."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_1_1626198346023",
+      "conditions": "$photosize",
+      "dialog_node": "response_7_1626198809380"
+    },
+    {
+      "type": "slot",
+      "parent": "node_1_1626198346023",
+      "variable": "$photosize",
+      "dialog_node": "slot_10_1626198665816",
+      "previous_sibling": "response_7_1626198809380"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "text": {
+          "values": [
+            "Welcome to VCS, you can have photo services, for example printing photos, ordering cards and etc. Ask for Help if needed."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "learning_opt_out": false,
+  "name": "watson-cvs",
+  "language": "en",
+  "description": "Basic restaurant ordering chatbot ordering burgers, drinks and shakes copy"
+}

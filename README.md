@@ -13,13 +13,13 @@ This repo is part of Watson chatbot serial. The entire serial includes
 
 ## Architecture and Components
 
-Voice Agent with Watson is one of several components in the overall architecture of your environment, which can include the following elements:
+Watson Voice Integration requires several components in the overall architecture of your environment, which can include the following elements:
 
-* An agent based on IBM Voice Gateway External link icon, which orchestrates the following Watson services:
-    - Speech to Text External link icon: Converts the caller's audio into text
-    - Watson Assistant External link icon: Analyzes the text, maps it to intents, and provides a response according to a dialog that you create
-    - Text to Speech External link icon: Converts the response into voice audio
-* A SIP trunk, which connects your agent to the telephone network
+* Voice Integration which works with the following Watson services:
+    - `Watson Assistant` analyzes the text, maps it to intents, and provides a response according to a dialog that you create
+    - `Speech to Text` converts the caller's audio into text
+    - `Text to Speech` converts the text response into voice audio
+* A SIP trunk, which connects your virtual agent to the telephone network
 * An optional service orchestration engine (SOE), which sits between the Watson Assistant service and your agent so that you can further customize your environment
 
 !["watson-voicebot-architecture"](docs/images/architecture01.png)
@@ -27,8 +27,7 @@ Voice Agent with Watson is one of several components in the overall architecture
 
 ## Conversation Flow
 
-The following diagram shows how Voice Agent with Watson orchestrates the various Watson services to create an agent. Within seconds, utterances flow between the services to result in a natural-sounding conversation with the caller.
-Voice Agent with Watson acts as a hub through which the caller and each Watson service communicate.
+The following diagram shows how Voice Integration with Watson orchestrates the various Watson services to create an cognitive agent. Within seconds, utterances flow between the services to result in a natural-sounding conversation with the caller. Voice Integration with Watson acts as a hub through which the caller and each Watson service communicate.
 
 !["watson-voicebot-architecture"](docs/images/architecture02.png)
 
@@ -41,12 +40,12 @@ The following steps outline the conversation flow.
 1. A message response is returned.
 1. The response text is sent to the Text to Speech service.
 1. Synthesized audio is returned.
-1. Voice Agent with Watson streams the audio response to the caller.
+1. Voice Integration with Watson streams the audio response to the caller.
 
 
 ## SIP Trunk
 
-You can use SIP trunks to quickly set up and test your environment from the public telephone network. When you connect to a agent through a SIP trunk, you must configure your SIP trunk to forward INVITE requests to the agent based on its IP address. You can find your Voice Agent with Watson SIP URI endpoint on the Getting started page.
+You can use SIP trunks to quickly set up and test your environment from the public telephone network. When you connect to a agent through a SIP trunk, you must configure your SIP trunk to forward INVITE requests to the agent based on its IP address. You can find your Voice Integration with Watson SIP URI endpoint on the `Phone` integration page of Watson Assistance instance.
 
 Calls flow through a SIP trunk to the agent, which communicates with Watson services though the API.
 
@@ -57,7 +56,7 @@ In addition to SIP trunk, you may choose different architecture when implementin
 
 ## Exercise Flow
 
-Complete sections below to configure Watson Voice Agent to integrate a set of orchestrated Watson services with the telephone network by using the Session Initiation Protocol (SIP). 
+Complete sections below to configure Watson Voice Integrate with a set of orchestrated Watson services and the telephone network by using the Session Initiation Protocol (SIP). 
 
 ### Step 1 - Clone the Repo
 
