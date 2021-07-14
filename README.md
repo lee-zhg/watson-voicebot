@@ -319,9 +319,9 @@ To configure Watson Voice Integration,
 
 Now, you completed the configuration of your cognitive agent.
 
-To test your cognitive agent, if you have a trial Twilio account, you must use the phone# that was used to register the trial Twilio account when you call your assigned Twilio phone#. This restriction does not apply if you have a paid Twilio account.
+To test your cognitive agent, if you have a trial Twilio account, you must make the call on the phone with the phone# that was used to register the trial Twilio account. This restriction does not apply if you have a paid Twilio account.
 
-The data flow is illustrated below.
+High level data flow is illustrated below.
 
 1. When the Twilio system receives the call, it passed the voice stream to your `Watson Assistant Voice Integration` which then passes to the `Watson Speech to Text` service instance.
 
