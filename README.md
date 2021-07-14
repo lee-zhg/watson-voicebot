@@ -336,7 +336,7 @@ High level data flow is illustrated below.
 
 #### Step 7.1 - If you are using dialog skill `skill-watson-burger-voice.json`
 
-If you created your base chatbot by importing dialog skill `skill-watson-burger-voice.json`, you may run the following test cases. Ordering burgers and drinks.
+If you created your underline chatbot by importing dialog skill `skill-watson-burger-voice.json`, you may run the following test cases. Ordering burgers and drinks.
 
 #### Test case #1
 
@@ -373,7 +373,7 @@ If you created your base chatbot by importing dialog skill `skill-watson-burger-
 
 #### Step 7.2 - If you are using dialog skill `skill-watson-photo.json`
 
-If you created your base chatbot by importing dialog skill `skill-watson-photo.json`, you may run the following test cases. Printing photos and ordering drinks.
+If you created your underline chatbot by importing dialog skill `skill-watson-photo.json`, you may run the following test cases. Printing photos and ordering drinks.
 
 #### Test case #1
 
