@@ -319,7 +319,7 @@ To configure Watson Voice Integration,
 
 Now, you completed the configuration of your cognitive agent.
 
-To test your cognitive agent, if you have a trial Twilio account, you must make the call on the phone having the phone# that was used to register the trial Twilio account. This restriction does not apply if you have a paid Twilio account.
+To test your cognitive agent, if you have a `trial` Twilio account, you must make the call on the phone having the phone# that was used to register the trial Twilio account. This restriction does not apply if you have a paid Twilio account.
 
 High level data flow is illustrated below.
 
