@@ -68,7 +68,7 @@ $ git clone https://github.com/lee-zhg/watson-voicebot.git
 $ cd watson-voicebot
 ```
 
-We’ll be using the file [`data/skill-watson-burger-voice.json`](../../data/skill-watson-burger-voice.json) to upload the Assistant Intents, Entities, and Dialog Nodes. In addition, file [`data/skill-watson-burger-voice.json`](../../data/skill-watson-burger-voice.json)
+We’ll be using the file [`data/skill-watson-burger-voice.json`](../../data/skill-watson-burger-voice.json) to upload the Assistant Intents, Entities, and Dialog Nodes. In addition, file [`data/skill-watson-photo.json`](../../data/skill-watson-photo.json) is also provided for your reference.
 
 
 ### Step 2 - Create Watson Assistant Service
@@ -96,7 +96,7 @@ To create an instance of `Watson Assistant` service,
     !["watson-voicebot-architecture"](docs/images/watson-assistant01.png)
 
 
-### Step 3 - Configure Watson Assistant
+### Step 3 - Configure Watson Assistant and Import Chatbot
 
 You define `intents`, `entities` and `dialog flows` in your `Watson Assistant` instance. You may develop from scratch or import file [`data/skill-watson-burger-voice.json`](../../data/skill-watson-burger-voice.json) as a starting point.
 
@@ -171,37 +171,12 @@ To create an instance of `Watson Text to Speech` service,
     !["watson-voicebot-architecture"](docs/images/watson-text2speech01.png)
 
 
-### Step 6 - Create Voice Agent with Watson Service
-
-`Voice Agent with Watson` service is the another core component of the `Watson Voicebot`. This component integrates all Watson services and your telephony system and makes the voicebot as a single working unit.
-
-To create an instance of `Voice Agent with Watson` service,
-
-1. Login to [IBM Cloud](https://cloud.ibm.com).
-
-1. Navigate to `Voice Agent with Watson` catalog page (https://cloud.ibm.com/catalog/services/voice-agent-with-watson).
-
-1. Select `Lite` or `Standard` plan.
-
-1. Give a unique name.
-
-1. Click `Create` button on the right.
-
-1. Go to the `Manage` tab.
-
-1. Record the service `Primary Endpoint` on the right.
-
-    !["watson-voicebot-architecture"](docs/images/watson-voice-agent01.png)
-
-1. In the left pane, the steps and instructions to configure the `voice agent` present.
-
-
-### Step 7 -  Configure Cognitive Agent
+### Step 6 - Configure Watson Voice Integration
 
 The rest of the repo illustrates how to create a cognitive agent, built on top of Watson services, that integrates with the Twilio telephone network using the Session Initiation Protocol (SIP).
 
 
-#### 7.1 - Setup a SIP Trunk for Voice Capabilities with Twilio
+#### 6.1 - Setup a SIP Trunk for Voice Capabilities with Twilio
 
 When you connect to a voice agent through a SIP trunk, you must configure your SIP trunk to forward INVITE requests to the agent based on its IP address. For `Voice Agent with Watson`, the `Primary Endpoint` on the Getting started page is the SIP URI endpoint that you would need when configuring Twilio account. You should have recorded the `Primary Endpoint` at the previous step.
 
@@ -237,14 +212,16 @@ When you connect to a voice agent through a SIP trunk, you must configure your S
 
     !["watson-voicebot-architecture"](docs/images/twilio07.png)
 
-1. Copy and paste the `Primary Endpoint` from your `Voice Agent with Watson` instance.
+1. Copy and paste the `SIP trunking configuration` section of your `Watson Assistant Voice Integration` page(see the screen shot below). The subject will be covered in the coming section.
+
+    !["watson-voicebot-architecture"](docs/images/watson-assistant06.png)
 
 1. Click `Add`.
 
     !["watson-voicebot-architecture"](docs/images/twilio08.png)
 
 
-#### 7.2 - Cofigure Twilio Phone Number
+#### 6.2 - Cofigure Twilio Phone Number
 
 When you created a Twilio trail account, a phone number is assigned to the account. After you configure the phone# with SIP trunk, the call to the phone# is forwarded to the `Voice Agent with Watson`. Then, the request will be handled by the chatbot based on `Watson Assistant`.
 
@@ -271,96 +248,100 @@ When you created a Twilio trail account, a phone number is assigned to the accou
 1. Click `Save`.
 
 
-#### Step 7.3 - Connect your Voice Agent with Watson to your Watson Services
+#### Step 6.3 - Configure Watson Voice Integration
 
-To connect your `Voice Agent with Watson` to your Watson Services,
+To configure Watson Voice Integration,
 
 1. Login to IBM Cloud at https://cloud.ibm.com.
 
-1. Find and open your instance of `Voice Agent with Watson` service on the dashboard.
+1. Find and open your `Watson Assistant` instance on the dashboard.
 
-    !["watson-voicebot-architecture"](docs/images/watson-voice-agent01.png)
+    !["watson-voicebot-architecture"](docs/images/watson-assistant01.png)
 
-1. Go to `Manage` tab.
+1. On the `Manage` tab, click `Launch Watson Assistant` button.
 
-1. Click `Create an agent` button.
+1. `Watson Assistant` window is launched in a new browser tab and you should land on the `Assistants` tab. If your `Watson Assistant` window has been open, you need to navigate to the `Assistants` tab to continue.
 
-    !["watson-voicebot-architecture"](docs/images/watson-voice-agent02.png)
+    !["watson-voicebot-architecture"](docs/images/watson-assistant02.png)
 
-1. Make sure `Voice` agent type is selected.
+1. Select the `Create assistant` button.
 
-1. Enter `my voicebot` in the `Name` field.
+    > Note: you should have created the skill `watson-burger-voice` in the previous section.
 
-1. Enter the Twilio phone# in the `Phone number(s)` field.
+1. Enter `myAssistant` in the `Name` field and click `Create Assistant` button.
 
-    !["watson-voicebot-architecture"](docs/images/watson-voice-agent03.png)
+    !["watson-voicebot-architecture"](docs/images/watson-assistant03.png)
 
-1. Scroll down to the `Conversation` section.
+1. Select `Add an action or dialog skill` button.
 
-1. Make sure `My Watson Assistant service instance` is selected as `Service type`.
+1. Select your `dialog skill` tile. For example, `watson-burger-voice`.
 
-1. Select your `Watson Assistant` instance in the `Service instance` field.
+    !["watson-voicebot-architecture"](docs/images/watson-assistant04.png)
 
-1. Select `watson-burger-voice/......` as the `Skill name`.
+1. Select the `Add integration` link.
 
-    > **Note**: you must select `watson-burger-voice/......`. Skill `wstson-burger-advanced` does not work as its dialog flow contains HTTP tags that `Watson Speech to Text` service can't process.
+    !["watson-voicebot-architecture"](docs/images/watson-assistant05.png)
 
-    !["watson-voicebot-architecture"](docs/images/watson-voice-agent04.png)
+1. A list of integration options is displayed. 
 
-1. Scroll down to the `Speech to Text` section.
+1. Select `Phone` tile.
 
-1. Make sure that the `My Speech to Text service instance` is selected as `Service type`.
+1. Enter `myPhoneIntegration` in the `Integration name` field.
 
-1. Select your `Service instance`.
+1. Select `Create`.
 
-1. Select `Broadband` in the `Select model type` field.
+    !["watson-voicebot-architecture"](docs/images/watson-assistant06.png)
 
-1. Select `en-US BroadbankModel: US English broadband model` as the `Model`.
+1. Enter your Twilio phone number (or from other provider). For exaple, +12055836682. Use digits only and add leading `+1`.
 
-1. Click `Show advanced` link to expand the section.
+    > Note: The same phone# can only be used for one integration configuration. Otherwise, an error will show up.
 
-1. In the `Custom language model (broadband)` field, select your custom model if you have any.
+1. Click the `More options` link next to `Speech services`. 
 
-    !["watson-voicebot-architecture"](docs/images/watson-voice-agent05.png)
+1. This action makes fields available for you to choose `Watson Speech to Text` and `Watson Text to Speech` instance.
 
-    >**Note**: Please refer to [Creating Custom Model of Watson Speech to Text](https://github.com/lee-zhg/watson-speech2text-custom-model.git) if you need to build a `custom lnaguage model` for `Watsonm Speech to text` service.
+    !["watson-voicebot-architecture"](docs/images/watson-assistant07.png)
 
-    >**Note**: If you participated a hackathon and need `custom lnaguage model` for `Watsonm Speech to text` service, talk to any IBM mentor to check if an existing `custom lnaguage model` is available.
+1. Select proper `Watson Speech to Text` and `Watson Text to Speech` instance.
 
-1. Scroll down to the `Text to Speech` section.
+1. In the `Base language model to transcribe incoming calls to text` field, select a STT base model. For example, `US English narrowBand`.
 
-1. Make sure that the `My Text to Speech service instance` is selected as `Service type`.
+1. In the `Base voice model for your assistant to speak with` field, select a TTS voice model. For example, `American English: Michael, male, v3`.
 
-1. Select your `Service instance`.
+1. `SIP Trunk URI` in the `SIP trunking configuration` section is for your phone provider configuration. See detail in the previous section.
 
-1. Optionally, you may choose a different `Voice`.
+    !["watson-voicebot-architecture"](docs/images/watson-assistant08.png)
 
-    !["watson-voicebot-architecture"](docs/images/watson-voice-agent06.png)
+1. Select `Save and exit` on the top.
+save the configuration.
 
-1. Click `Create an agent` button to save the configuration.
 
+### Step 7 - Verification
 
-### Step 8 - Dial and Make Order
+Now, you completed the configuration of your cognitive agent.
 
-Now, you completed the configuration of your voicebot, or cognitive agent.
+To test your cognitive agent, if you have a trial Twilio account, you must use the phone# that was used to register the trial Twilio account when you call your assigned Twilio phone#. This restriction does not apply if you have a paid Twilio account.
 
-To test your voicebot, you must use the phone# that was used to register the trial Twilio account when you call your assigned Twilio phone#. 
+The data flow is illustrated below.
 
-1. When the Twilio system receives the call, it passed the voice stream to your `Voice Agent with Watson` instance which then passes to the `Watson Speech to Text` service instance.
+1. When the Twilio system receives the call, it passed the voice stream to your `Watson Assistant Voice Integration` which then passes to the `Watson Speech to Text` service instance.
 
-1. The `Watson Speech to Text` service instance transcribes the voice stream to text message and passes to `Watson Assistant` service instance.
+1. The `Watson Speech to Text` service instance transcribes the voice stream to text message and passes back to `Watson Assistant` service instance.
 
 1. The chatbot based on the `Watson Assistant` service instance, accepts the text as a question or inquiry and response to it.
 
-1. The chatbot response is passed to `Watson Text to Speech` service instance. The text messages are converted to voice and then is passed to `Voice Agent with Watson` which passes the voice stream back to `Twilio`.
+1. The chatbot response is passed to `Watson Text to Speech` service instance. The text messages are converted to voice and then is passed to `Watson Assistant Voice Integration` which passes the voice stream back to `Twilio`.
 
 1. You start by calling and talking to Twilio, Watson completes a series of API calls and get a rreponse back to you in voice. A full cycle is completed.
 
-For example, you can make the following oders.
 
-#### Order #1
+#### Step 7.1 - If you are using dialog skill `skill-watson-burger-voice.json`
 
-1. Dial you assigned Twilio phone#.
+If you created your base chatbot by importing dialog skill `skill-watson-burger-voice.json`, you may run the following test cases. Ordering burgers and drinks.
+
+#### Test case #1
+
+1. Dial your assigned Twilio phone#.
 
 1. The voicebot picks up the call and greets you with welcome greeting.
 
@@ -368,9 +349,9 @@ For example, you can make the following oders.
 
 1. Because all required information to order a burger has been provided, the voicebot grabs information and completes the order with response messages.
 
-#### Order #2
+#### Test case #2
 
-1. Dial you assigned Twilio phone#.
+1. Dial your assigned Twilio phone#.
 
 1. The voicebot picks up the call and greets you with welcome greeting.
 
@@ -380,15 +361,57 @@ For example, you can make the following oders.
 
 1. After receiving all required information, the voicebot completes the order with response messages.
 
-#### Order #3
+#### Test case #3
 
-1. Dial you assigned Twilio phone#.
+1. Dial your assigned Twilio phone#.
 
 1. The voicebot picks up the call and greets you with welcome greeting.
 
 1. You make the 3rd order by talking to voicebot `I like to order a small McFlurry with cookie`.
 
 1. Because all required information to order a McFlurry has been provided, the voicebot grabs information and completes the order with response messages.
+
+
+#### Step 7.2 - If you are using dialog skill `skill-watson-photo.json`
+
+If you created your base chatbot by importing dialog skill `skill-watson-photo.json`, you may run the following test cases. Printing photos and ordering drinks.
+
+#### Test case #1
+
+1. Dial your assigned Twilio phone#.
+
+1. The voicebot picks up the call and greets you with welcome greeting.
+
+1. You make the order by talking to voicebot `print 8x10 photos`.
+
+1. Because all required information to complete an order has been provided, the voicebot grabs information and completes the order with response messages.
+
+#### Test case #2
+
+1. Dial your assigned Twilio phone#.
+
+1. The voicebot picks up the call and greets you with welcome greeting.
+
+1. You make 2nd order by talking to voicebot `I like to print photos`.
+
+1. Because photo size information was not provided, the voicebot prompts you for the information.
+
+1. After receiving all required information, the voicebot completes the order with response messages.
+
+#### Test case #3
+
+1. Dial your assigned Twilio phone#.
+
+1. The voicebot picks up the call and greets you with welcome greeting.
+
+1. You make the 3rd order by talking to voicebot `I like to have card service`.
+
+1. Because all required information to complete the inquiry has been provided, the voicebot grabs information and completes the order with response messages.
+
+
+#### Step 7.3 - If you have your own dialog skill
+
+If you have your own dialog skill, you have the knowledge to develop your custom test cases.
 
 
 ## Links
