@@ -356,7 +356,7 @@ If you created your underline chatbot by importing dialog skill `skill-watson-bu
 
 1. You make 2nd order by talking to voicebot `one big mac please`.
 
-1. Because dining location information to order a burger was not provided, the voicebot prompts you for the information.
+1. Because dining location information to order a burger was not provided, the voicebot prompts you for the information. You can reply the prompt by saying `to go`.
 
 1. After receiving all required information, the voicebot completes the order with response messages.
 
@@ -393,7 +393,7 @@ If you created your underline chatbot by importing dialog skill `skill-watson-ph
 
 1. You make 2nd order by talking to voicebot `I like to print photos`.
 
-1. Because photo size information was not provided, the voicebot prompts you for the information.
+1. Because photo size information was not provided, the voicebot prompts you for the information. You can reply the prompt by saying `8x10`.
 
 1. After receiving all required information, the voicebot completes the order with response messages.
 
