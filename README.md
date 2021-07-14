@@ -68,7 +68,7 @@ $ git clone https://github.com/lee-zhg/watson-voicebot.git
 $ cd watson-voicebot
 ```
 
-We’ll be using the file [`data/skill-watson-burger-voice.json`](../../data/skill-watson-burger-voice.json) to upload the Assistant Intents, Entities, and Dialog Nodes.
+We’ll be using the file [`data/skill-watson-burger-voice.json`](../../data/skill-watson-burger-voice.json) to upload the Assistant Intents, Entities, and Dialog Nodes. In addition, file [`data/skill-watson-burger-voice.json`](../../data/skill-watson-burger-voice.json)
 
 
 ### Step 2 - Create Watson Assistant Service
