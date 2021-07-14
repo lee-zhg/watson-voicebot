@@ -1,8 +1,8 @@
-# Voicebot with Watson Services & Twilio - Watson Voice Agent
+# Voicebot with Watson Services & Twilio - Watson Voice Integration
 
-IBM Voice Agent with Watso enables direct, automated voice interactions over the telephone between a cognitive agent and your customers. With Watson artificial intelligence at its backbone, your agent can communicate in a more conversational manner, and it can handle complex interactions that are difficult for traditional interactive voice response (IVR) systems.
+IBM Voice Integration with Watson services enables direct, automated voice interactions over the telephone between a cognitive agent and your customers. With Watson artificial intelligence at its backbone, your cognitive agent can communicate in a more conversational manner, and it can handle complex interactions that are difficult for traditional interactive voice response (IVR) systems.
 
-IBM Voice Agent with Watsons helps you integrate a set of orchestrated Watson services with the telephone network by using the Session Initiation Protocol (SIP). 
+IBM Voice Integration with Watson services helps you integrate a set of orchestrated Watson services with the telephone network by using the Session Initiation Protocol (SIP). 
 
 This repo is part of Watson chatbot serial. The entire serial includes
 * [Simple ChatBot](https://github.com/lee-zhg/watson-chatbot-simple.git)
