@@ -312,8 +312,7 @@ To configure Watson Voice Integration,
 
     !["watson-voicebot-architecture"](docs/images/watson-assistant08.png)
 
-1. Select `Save and exit` on the top.
-save the configuration.
+1. Select `Save and exit` on the top to save the configuration.
 
 
 ### Step 7 - Verification
