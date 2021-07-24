@@ -23,7 +23,7 @@ Complete the steps below to configure Watson Assistant MSM integration with Twil
 
 1. Click the home icon to go to your project dashboard.
 
-    !["watson-voicebot-architecture"](docs/images/twilio31.png)
+    !["watson-voicebot-architecture"](docs/images/twilio61.png)
 
 1. Take note of the value of `Account SID` and `Auth token`. You will need both values for later.
 
@@ -44,15 +44,15 @@ To integrate Watson Assistant with SMS via Twilio,
 
 1. From the Integrations section, click `Add integration`.
 
-  !["watson-twilio-sms"](docs/images/assistant-01.png)
+  !["watson-twilio-sms"](docs/images/assistant-61.png)
 
 1. Click `SMS with Twilio`.
 
-  !["watson-twilio-sms"](docs/images/assistant-02.png)
+  !["watson-twilio-sms"](docs/images/assistant-62.png)
 
 1. Click `Create`.
 
-  !["watson-twilio-sms"](docs/images/assistant-03.png)
+  !["watson-twilio-sms"](docs/images/assistant-63.png)
 
 1. Eneter values in the field `Account SID` and `Auth token`. You should have retrieved the information in the previous section.
 
@@ -75,7 +75,7 @@ To integrate Watson Assistant with SMS via Twilio,
 
 1. Scroll to the `Messaging section`, and then find the `Webhook` field. It defines what to do when a message comes in.
 
-    !["watson-voicebot-architecture"](docs/images/twilio32.png)
+    !["watson-voicebot-architecture"](docs/images/twilio62.png)
 
 1. Enter the value from the previous section in the `Webhook` field.
 
