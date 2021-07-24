@@ -1,0 +1,759 @@
+{
+  "intents": [
+    {
+      "intent": "exit",
+      "examples": [
+        {
+          "text": "cancel"
+        },
+        {
+          "text": "exit"
+        },
+        {
+          "text": "get me out"
+        },
+        {
+          "text": "get me out of here"
+        },
+        {
+          "text": "I'm done"
+        },
+        {
+          "text": "no"
+        }
+      ]
+    },
+    {
+      "intent": "help",
+      "examples": [
+        {
+          "text": "help"
+        },
+        {
+          "text": "help please"
+        },
+        {
+          "text": "I don't understand"
+        },
+        {
+          "text": "What can I do"
+        }
+      ]
+    },
+    {
+      "intent": "inquire_order",
+      "examples": [
+        {
+          "text": "Are my photos ready"
+        },
+        {
+          "text": "check order status"
+        },
+        {
+          "text": "existing order"
+        },
+        {
+          "text": "inquire about an existing order"
+        },
+        {
+          "text": "I want to check if my order is ready"
+        },
+        {
+          "text": "when/ can i pick up my photos"
+        },
+        {
+          "text": "Where are my photos"
+        }
+      ],
+      "description": "like to check my order"
+    },
+    {
+      "intent": "order",
+      "examples": [
+        {
+          "text": "Can I print some photos"
+        },
+        {
+          "text": "card service"
+        },
+        {
+          "text": "have card service"
+        },
+        {
+          "text": "How much does a print cost?"
+        },
+        {
+          "text": "how much does it cost to print photos"
+        },
+        {
+          "text": "how much for a 4 by 6 photo"
+        },
+        {
+          "text": "how much is card service"
+        },
+        {
+          "text": "how much to print 10 photos"
+        },
+        {
+          "text": "I like to check price for prints"
+        },
+        {
+          "text": "I need to order some prints"
+        },
+        {
+          "text": "like to have the photo printing price"
+        },
+        {
+          "text": "Like to print photos"
+        },
+        {
+          "text": "order photos"
+        },
+        {
+          "text": "want to buy photos"
+        },
+        {
+          "text": "What is the biggest (or smallest) size photo that I can make?"
+        }
+      ]
+    },
+    {
+      "intent": "representative",
+      "examples": [
+        {
+          "text": "human agent please"
+        },
+        {
+          "text": "representative"
+        },
+        {
+          "text": "speak to a person"
+        },
+        {
+          "text": "speak with a human agent"
+        },
+        {
+          "text": "speak with a representative"
+        },
+        {
+          "text": "transfer me to a person"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "reset",
+      "examples": [
+        {
+          "text": "begin"
+        },
+        {
+          "text": "delete the inputs"
+        },
+        {
+          "text": "reset"
+        },
+        {
+          "text": "restart"
+        },
+        {
+          "text": "start again"
+        },
+        {
+          "text": "start over"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity": "extra_confirmed",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "no",
+          "synonyms": [
+            "n"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "yes",
+          "synonyms": []
+        }
+      ]
+    },
+    {
+      "entity": "finish",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "gloss",
+          "synonyms": [
+            "polished",
+            "shiny",
+            "slick"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "matte",
+          "synonyms": [
+            "mat",
+            "not shiny"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "ordernumber",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "ordernumber",
+          "patterns": [
+            "\\d{3}"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "photosize",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "4 by 6",
+          "synonyms": [
+            "4 and 6",
+            "4by6",
+            "4 inch wide and 6 inch long",
+            "4x6",
+            "6 and 4",
+            "6 inch wide and 4 inch long",
+            "6x4",
+            "four by six",
+            "six by four"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "5 by 7",
+          "synonyms": [
+            "5 and 7",
+            "5 by 7",
+            "5 inch wide and 7 inch long",
+            "5x7",
+            "7 by 5",
+            "7 inch wide and 5 inch long",
+            "five by seven",
+            "seven by five"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "8 by 10",
+          "synonyms": [
+            "10 by 8",
+            "10 inch wide and 8 inch long",
+            "8 and 10",
+            "8 by 10",
+            "8 inch wide and 10 inch long",
+            "8x10",
+            "eight by ten",
+            "ten by eight"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "servicetype",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "card",
+          "synonyms": [
+            "birthday card",
+            "card service",
+            "graduation card"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "photo",
+          "synonyms": [
+            "picture"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "skipOrderNumber",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "skip order number",
+          "synonyms": [
+            "I don't have one",
+            "I don't have order#",
+            "I don't have order number",
+            "no idea",
+            "no order number"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Fallback",
+      "output": {
+        "text": {
+          "values": [
+            "You can have photo services, for example printing photos, ordering cards and etc. Ask for Help if needed."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "digress_in": "not_available",
+      "dialog_node": "Fallback",
+      "digress_out": "allow_all",
+      "previous_sibling": "Reset"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_9_1626471692355",
+      "context": {
+        "ordernumber": "@ordernumber"
+      },
+      "conditions": "@ordernumber",
+      "event_name": "input",
+      "dialog_node": "handler_10_1626471692355"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What is your order number?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_9_1626471692355",
+      "event_name": "focus",
+      "dialog_node": "handler_11_1626471692355",
+      "previous_sibling": "handler_10_1626471692355"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_2_1626448644085",
+      "context": {
+        "photosize": "@photosize"
+      },
+      "conditions": "@photosize",
+      "event_name": "input",
+      "dialog_node": "handler_3_1626448644085"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What size photo do you want to print?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_2_1626448644085",
+      "event_name": "focus",
+      "dialog_node": "handler_4_1626448644085",
+      "previous_sibling": "handler_3_1626448644085"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_5_1626448644085",
+      "context": {
+        "finish": "@finish"
+      },
+      "conditions": "@finish",
+      "event_name": "input",
+      "dialog_node": "handler_6_1626448644085"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What kind of finish do you want?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_5_1626448644085",
+      "event_name": "focus",
+      "dialog_node": "handler_7_1626448644085",
+      "previous_sibling": "handler_6_1626448644085"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "node_8_1626471692353",
+      "next_step": {
+        "behavior": "skip_all_slots"
+      },
+      "conditions": "@skipOrderNumber",
+      "event_name": "generic",
+      "dialog_node": "handler_8_1626471840278"
+    },
+    {
+      "type": "frame",
+      "title": "Photo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A $photosize photo in $finish finish would cost $price"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1626358306460",
+      "context": {
+        "price": "\\$5"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Reset"
+      },
+      "conditions": "@servicetype:photo",
+      "dialog_node": "node_1_1626448644084"
+    },
+    {
+      "type": "standard",
+      "title": "Transfer vgw action - telephone",
+      "output": {
+        "text": {
+          "values": [
+            "Transferring your call to a representative."
+          ],
+          "selection_policy": "sequential"
+        },
+        "vgwAction": {
+          "command": "vgwActTransfer",
+          "parameters": {
+            "transferHeader": "User-to-User",
+            "transferTarget": "tel:+12144220202"
+          }
+        }
+      },
+      "conditions": "#representative",
+      "dialog_node": "node_1_1627137691026",
+      "previous_sibling": "node_8_1626358306460"
+    },
+    {
+      "type": "standard",
+      "title": "Transfer vgw action - sip",
+      "output": {
+        "text": {
+          "values": [
+            "Transferring your call to a representative."
+          ],
+          "selection_policy": "sequential"
+        },
+        "vgwAction": {
+          "command": "vgwActTransfer",
+          "parameters": {
+            "transferHeader": "User-to-User",
+            "transferTarget": "sip:gscfsbmx\\@siptest012.onsip.com"
+          }
+        }
+      },
+      "dialog_node": "node_1_1627137992125",
+      "previous_sibling": "node_1_1627137691026"
+    },
+    {
+      "type": "frame",
+      "title": "Existing order status",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#inquire_order",
+      "dialog_node": "node_5_1626360085239",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Card",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank you for checking CVA card service. Enjoy your day"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1626358306460",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Reset"
+      },
+      "conditions": "@servicetype:card",
+      "dialog_node": "node_5_1626449330539",
+      "previous_sibling": "node_1_1626448644084"
+    },
+    {
+      "type": "frame",
+      "title": "PriceInquiry",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#order",
+      "dialog_node": "node_8_1626358306460",
+      "previous_sibling": "node_5_1626360085239"
+    },
+    {
+      "type": "frame",
+      "title": "Existing order",
+      "parent": "node_5_1626360085239",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Reset"
+      },
+      "conditions": "true",
+      "dialog_node": "node_8_1626471692353"
+    },
+    {
+      "type": "standard",
+      "title": "Reset",
+      "output": {
+        "text": {
+          "values": [
+            "......"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "context": {
+        "finish": null,
+        "photosize": null,
+        "ordernumber": null
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Welcome"
+      },
+      "conditions": "#reset",
+      "dialog_node": "Reset",
+      "previous_sibling": "node_1_1627137992125"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your order will be ready soon!"
+              },
+              {
+                "text": "Head to CVS.com to check on your order!"
+              },
+              {
+                "text": "Your order is not quite ready."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1626471692353",
+      "conditions": "@ordernumber",
+      "dialog_node": "response_12_1626471692355",
+      "previous_sibling": "handler_8_1626471840278"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Transfer to live agent for further assistance"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1626471692353",
+      "conditions": "@skipOrderNumber",
+      "dialog_node": "response_6_1626472069060",
+      "previous_sibling": "response_12_1626471692355"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your order will be ready soon!"
+              },
+              {
+                "text": "Head to CVS.com to check on your order!"
+              },
+              {
+                "text": "Your order is not quite ready."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1626360085239",
+      "disabled": true,
+      "dialog_node": "response_9_1626471436623",
+      "previous_sibling": "node_8_1626471692353"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1626448644084",
+      "variable": "$photosize",
+      "dialog_node": "slot_2_1626448644085"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1626448644084",
+      "variable": "$finish",
+      "dialog_node": "slot_5_1626448644085",
+      "previous_sibling": "slot_2_1626448644085"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_8_1626471692353",
+      "variable": "$ordernumber",
+      "dialog_node": "slot_9_1626471692355",
+      "previous_sibling": "response_6_1626472069060"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome to CVS, are you here to check the existing oder or inquire the new photo services? "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ],
+        "vgwActionSequence": [
+          {
+            "command": "vgwActSetSTTConfig",
+            "parameters": {
+              "config": {
+                "model": "en-US_NarrowbandModel",
+                "customization_id": "bdf8d11a-ff4e-4f36-abc7-1627126059f7",
+                "smart_formatting": true
+              },
+              "updateMethod": "merge"
+            }
+          },
+          {
+            "command": "vgwActPlayText"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "learning_opt_out": false,
+  "name": "team1",
+  "language": "en",
+  "description": "Basic restaurant ordering chatbot ordering burgers, drinks and shakes copy copy"
+}
