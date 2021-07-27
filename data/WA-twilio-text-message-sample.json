@@ -1,0 +1,49 @@
+{
+  "output": {
+    "text": {
+      "values": [
+        "Ok. I’m sending you a text message now."
+      ],
+      "selection_policy": "sequential"
+    },
+    "vgwActionSequence": [
+      {
+        "command": "vgwActSendSMS",
+        "parameters": {
+          "message": "This is a SMS message test",
+          "enableInboundSMS": true
+        }
+      },
+      {
+        "command": "vgwActionPlayText"
+      }
+    ]
+  }
+}
+
+
+
+{
+  "output": {
+    "text": {
+      "values": [
+        "Ok. I’m sending you a text message now."
+      ],
+      "selection_policy": "sequential"
+    },
+    "vgwActionSequence": [
+      {
+        "command": "vgwActSendSMS",
+        "parameters": {
+          "message": "This is a SMS message test",
+          "userPhoneNumber": "12142893340",
+          "enableInboundSMS": true
+        }
+      },
+      {
+        "command": "vgwActionPlayText"
+      }
+    ]
+  }
+}
+
